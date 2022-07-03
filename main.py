@@ -1,20 +1,25 @@
 import requests
 import json
-
 from pprint import pprint
 
-def test_request():
-    url = 'https://akabab.github.io/superhero-api/api/all.json'
-    response = requests.get(url=url)
-    response_json = response.json()
-    # return response_json
-    # pprint(response.json())
-    # pprint(response.content)
-    contents = response.content
-    final_contents = contents.json()
-    return final_contents
+heroes_list = ['Hulk', 'Captain america', 'Thanos']
+intelligence_dict = {'Hulk': 0, 'Captain america': 0, 'Thanos': 0}
+url = 'https://www.superheroapi.com/api.php/2619421814940190/search/'
+
+def who_is_smarter(dict, list):
+    for hero in list:
+        hero_dict = json.loads(requests.get(url + hero).content)
+        dict[hero] = int(hero_dict['results'][0]['powerstats']['intelligence'])
+
+    smart_hero = ''
+    intelligence_hero = 0
+    for hero, intelligence in dict.items():
+        if intelligence_hero < intelligence:
+            intelligence_hero = intelligence
+            smart_hero = hero
+    return f'Самый умный герой {smart_hero}'
+
 
 if __name__ == '__main__':
-    # test_request()
-    with open('file.json', 'a', encoding='utf-8') as file:
-        file.write(test_request())
+    pprint(who_is_smarter(intelligence_dict, heroes_list))
+
