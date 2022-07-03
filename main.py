@@ -1,6 +1,7 @@
 import requests
 import json
 from pprint import pprint
+from ya_disk import YaUploader
 
 heroes_list = ['Hulk', 'Captain america', 'Thanos']
 intelligence_dict = {'Hulk': 0, 'Captain america': 0, 'Thanos': 0}
@@ -20,6 +21,10 @@ def who_is_smarter(dict, list):
     return f'Самый умный герой {smart_hero}'
 
 
+
+
 if __name__ == '__main__':
     pprint(who_is_smarter(intelligence_dict, heroes_list))
+
+    path_to_file
 
