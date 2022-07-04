@@ -29,6 +29,6 @@ if __name__ == '__main__':
     pprint(who_is_smarter(intelligence_dict, heroes_list))
 
     ya = YandexDisk(token=TOKEN)
-    ya.upload_file_to_disk('', 'test.txt')
+    ya.upload_file_to_disk(disk_file_path='disk:/new/test.txt', filename='test.txt')
 
 
