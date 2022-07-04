@@ -1,7 +1,9 @@
 import requests
 import json
 from pprint import pprint
-from ya_disk import YaUploader
+from ya_disk import YandexDisk
+
+TOKEN = ''
 
 heroes_list = ['Hulk', 'Captain america', 'Thanos']
 intelligence_dict = {'Hulk': 0, 'Captain america': 0, 'Thanos': 0}
@@ -26,5 +28,7 @@ def who_is_smarter(dict, list):
 if __name__ == '__main__':
     pprint(who_is_smarter(intelligence_dict, heroes_list))
 
-    path_to_file
+    ya = YandexDisk(token=TOKEN)
+    ya.upload_file_to_disk('', 'test.txt')
+
 
